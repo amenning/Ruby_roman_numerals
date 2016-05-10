@@ -1,4 +1,12 @@
+# The program takes an integer containing and converts it to a string of Roman Numerals
+# For numbers 1-4999, the original seven symbols are used:
+# I (1), V (5), X (10), L (50), C (100), D (500), M (1000)
+#
+# Author::		Carl Andrew Menning (mailto:menning23@gmail.com)
+# Copyright:: 	Copyright (c) 2016 
+
 class Converter
+		
 	attr_reader :romanNum
 	
 	@@romanOnesConvert=["I","II","III","IV","V","VI","VII","VIII","IX"]
@@ -9,12 +17,14 @@ class Converter
 	def int_to_rom(number)
 		@number = number
 		@romanNum=""
-		# Need to check if number is equal to or above 10000
-		convert_thousands()
-		convert_hundreds()
-		convert_tens()
-		convert_ones()
-		puts @romanNum
+		if (number<9999)
+			convert_thousands()
+			convert_hundreds()
+			convert_tens()
+			convert_ones()
+		else
+			@romanNum="Greater than 5000"
+		end
 		return @romanNum
 	end
 	
@@ -42,39 +52,3 @@ class Converter
 		@romanNum += @@romanOnesConvert[onesCount - 1] unless onesCount == 0
 	end
 end
-
-
-# function convert(num) {
-  # var romanNum="";
-  # var romanOnesConvert=["I","II","III","IV","V","VI","VII","VIII","IX"];
-  # var romanTensConvert=["X","XX","XXX","XL","L","LX","LXX","LXXX","XC"];
-  # var romanHundredsConvert=["C","CC","CCC","CD","D","DC","DCC","DCCC","CM"];
-  # var romanThousandsConvert=["M","MM","MMM","MMMM","MMMMM","MMMMMM","MMMMMMM","MMMMMMMM","MMMMMMMMM"];
-  
-  # var thousandsCount = Math.floor(num/1000);
-  
-  # if(thousandsCount>0){
-    # romanNum+=romanThousandsConvert[thousandsCount-1];
-    # num=num-thousandsCount*1000;
-  # }
-  
-  # var hundredsCount = Math.floor(num/100);
-  
-  # if(hundredsCount>0){
-    # romanNum+=romanHundredsConvert[hundredsCount-1];
-    # num=num-hundredsCount*100;
-  # }
-  
-  # var tensCount = Math.floor(num/10);
-  
-  # if(tensCount>0){
-    # romanNum+=romanTensConvert[tensCount-1];
-    # num=num-tensCount*10;
-  # }
-  
-  
-  # if(num>0 && num<10){
-    # romanNum+=romanOnesConvert[num-1];
-  # }
-  # return romanNum;
-# }
