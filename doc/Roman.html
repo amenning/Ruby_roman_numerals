@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Roman - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-convert_int">#convert_int</a>
+    
+    <li ><a href="#method-i-int_to_rom">#int_to_rom</a>
+    
+    <li ><a href="#method-i-reset_symbols-21">#reset_symbols!</a>
+    
+    <li ><a href="#method-i-update_symbols">#update_symbols</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Roman">
+  <h1 id="class-Roman" class="class">
+    class Roman
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Roman.html">Roman</a> class contains custom methods to convert
+an integer or floating number to <a href="Roman.html">Roman</a> Numerals.
+This version uses the original <a href="Roman.html">Roman</a> Numerals for
+1-4999, with the option to define new symbols for any integer value other
+than 1 (I) and 5 (V).</p>
+
+<p>The default symbols are:</p>
+<ul><li>
+<p>I (1)</p>
+</li><li>
+<p>IV (4)</p>
+</li><li>
+<p>V (5)</p>
+</li><li>
+<p>IX (9)</p>
+</li><li>
+<p>X (10)</p>
+</li><li>
+<p>XL (40)</p>
+</li><li>
+<p>L (50)</p>
+</li><li>
+<p>XC (90)</p>
+</li><li>
+<p>C (100)</p>
+</li><li>
+<p>CD (400)</p>
+</li><li>
+<p>D (500)</p>
+</li><li>
+<p>CM (900)</p>
+</li><li>
+<p>M (1000)</p>
+</li></ul>
+
+<p>The methods below are also implemenented with the following constraints:</p>
+
+<p>“Implement an integer-to-roman-numeral formatting function</p>
+<ul><li>
+<p>…that permits assigning symbols for values other than 1 and 5, without
+changing the code</p>
+</li><li>
+<p>…that can represent floating-point numbers, using an encoding scheme of
+your choice (explain!)“</p>
+</li></ul>
+
+<p>New symbols defintions can be assigned using the <a
+href="Roman.html#method-i-update_symbols">#update_symbols</a> method using
+a hash of definitions, such as {40 =&gt; “T”} This method also will convert
+floating-point numbers to 3 decimal places using the instance symbol
+definitions from 0.001 to 0.999, such that 0.001 = “.I” and 0.999 =
+“.CMXCIX”</p>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Carl Andrew Menning</p>
+</dd><dt>Version
+<dd>
+<p>0.0.1</p>
+</dd><dt>License
+<dd>
+<p>Distributed under the same terms as Ruby</p>
+</dd></dl>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-roman_hash" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">roman_hash</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The initialize method creates an instance version of <a
+href="Roman.html">Roman</a> Numerals contained within a hash such that the
+key is the integer value and the value is the corresponding <a
+href="Roman.html">Roman</a> Numeral symbol</p>
+
+<p><strong>Args</strong>          :</p>
+<ul><li>
+<p><code>options</code> -&gt; hash accepting new <a
+href="Roman.html">Roman</a> Numeral defintions, for example, to replace XL
+for 40: {40 =&gt; “T”}</p>
+</li></ul>
+
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><a href="Roman.html#attribute-i-roman_hash">#roman_hash</a> -&gt; instance
+hash containing all current symbol definitions</p>
+</li></ul>
+
+<p><strong>Raises</strong>  : This method contains no additional error checks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File roman.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+        <span class="ruby-identifier">reset_symbols!</span>
+        
+        <span class="ruby-identifier">update_symbols</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-convert_int" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_int</span><span
+            class="method-args">(number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The <a href="Roman.html#method-i-convert_int">#convert_int</a> method is
+the method used to convert subset integers to <a
+href="Roman.html">Roman</a> Numerals using the instance defined symbols
+contained within @roman_hash</p>
+
+<p><strong>Args</strong>          :</p>
+<ul><li>
+<p><code>number</code> -&gt; Fixnum or Bignum to be converted to <a
+href="Roman.html">Roman</a> Numerals</p>
+</li></ul>
+
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p>String containing converted number into defined <a
+href="Roman.html">Roman</a> Numerals</p>
+</li></ul>
+
+<p><strong>Raises</strong>  : This method contains no additional error checks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="convert_int-source">
+            <pre><span class="ruby-comment"># File roman.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_int</span>(<span class="ruby-identifier">number</span>)
+        <span class="ruby-identifier">roman_num</span> = <span class="ruby-string">&quot;&quot;</span>
+        <span class="ruby-comment">#The following chain of commands takes the hash containing symbol definitions and does:</span>
+        <span class="ruby-comment"># 1. .sort = Converts hash to array of [key, values] sorted by the key in ascending order</span>
+        <span class="ruby-comment"># 2. .reverse = Converts array to be sorted by descending order of key </span>
+        <span class="ruby-comment"># 3. .map = Iterates on each [key, value] array </span>
+        <span class="ruby-comment"># 3a. The current number is divided by the current integer key and the whole number from the division is stored in a repeat variable and the remainder is stored into an updated number for next iteration</span>
+        <span class="ruby-comment"># 3b. The current letter symbol is repeated a number equal to repeat, for example &quot;I&quot;*3 = &quot;III&quot;</span>
+        <span class="ruby-comment"># 4. .join combines all array string elements into a single final string</span>
+        <span class="ruby-identifier">roman_num</span> = <span class="ruby-ivar">@roman_hash</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">integer</span>, <span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">repeat</span>, <span class="ruby-identifier">number</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">divmod</span>(<span class="ruby-identifier">integer</span>)
+                <span class="ruby-identifier">letter</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">repeat</span>
+        <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">roman_num</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-int_to_rom" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">int_to_rom</span><span
+            class="method-args">(number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The <a href="Roman.html#method-i-int_to_rom">#int_to_rom</a> method is the
+main method used to convert an integer or floating number to <a
+href="Roman.html">Roman</a> Numerals using the current symbol definition
+contained within the instance variable @roman_hash. This method will
+convert floating point numbers to 3 decimals such that 0.001 = “.I” and
+0.999 = “.CMXCIX” and will use any updated integer symbols as appropriate</p>
+
+<p><strong>Args</strong>          :</p>
+<ul><li>
+<p><code>number</code> -&gt; Fixnum, Bignum, or Float to be converted to <a
+href="Roman.html">Roman</a> Numerals</p>
+</li></ul>
+
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p>String containing converted number into defined <a
+href="Roman.html">Roman</a> Numerals</p>
+</li></ul>
+
+<p><strong>Raises</strong>  : This method contains no additional error checks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="int_to_rom-source">
+            <pre><span class="ruby-comment"># File roman.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">int_to_rom</span>(<span class="ruby-identifier">number</span>)
+        <span class="ruby-comment"># 1. Separate input number to be converted into integer and fractional portions</span>
+        <span class="ruby-comment"># 1a. Integer portion can be separated by using Ruby&#39;s to_i method </span>
+        <span class="ruby-identifier">integer_portion</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-comment"># 2b. This method only converts the fractional portion to 3 decimal points ranging from 0.001 - 0.999</span>
+        <span class="ruby-comment">#             The fractional portion is treated as integer numbers 1-999, such that 0.001 = &quot;.I&quot; and 0.999 = &quot;.CMXCIX&quot;</span>
+        <span class="ruby-comment">#             and will incorporate any updated symbol changes accordingly.  In order to avoid floating point errors</span>
+        <span class="ruby-comment">#             the manipulation is adjusted by 1000 to ensure all digits to be converted are integers</span>
+        <span class="ruby-identifier">number</span> <span class="ruby-operator">*=</span> <span class="ruby-value">1000</span>
+        <span class="ruby-identifier">number</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">integer_portion</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>
+        <span class="ruby-identifier">fractional_portion</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_i</span>
+        
+        <span class="ruby-comment"># 3. Initialize final Roman Numeral sring to return &quot;&quot; if inputed number is 0</span>
+        <span class="ruby-identifier">total_roman_num</span> = <span class="ruby-string">&quot;&quot;</span>
+        <span class="ruby-comment"># 4. Convert integer portion unless this is equal to 0</span>
+        <span class="ruby-identifier">total_roman_num</span> = <span class="ruby-identifier">convert_int</span>(<span class="ruby-identifier">integer_portion</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">integer_portion</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment"># 5. Add decimal point and convert fractional portion unless fractinoal portion is equal to 0</span>
+        <span class="ruby-identifier">total_roman_num</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;.&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fractional_portion</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">total_roman_num</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">convert_int</span>(<span class="ruby-identifier">fractional_portion</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fractional_portion</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">total_roman_num</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset_symbols-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_symbols!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The reset_symbols method used to redefine the instance hash containing <a
+href="Roman.html">Roman</a> Numeral definitions to the original set of
+definitions and clear any changes that have been made.</p>
+
+<p><strong>Args</strong>          :</p>
+<ul><li>
+<p>This method has no arguments</p>
+</li></ul>
+
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><a href="Roman.html#attribute-i-roman_hash">#roman_hash</a> -&gt; instance
+hash containing all original symbol definitions</p>
+</li></ul>
+
+<p><strong>Raises</strong>  : This method contains no additional error checks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reset_symbols-21-source">
+            <pre><span class="ruby-comment"># File roman.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_symbols!</span>
+        <span class="ruby-ivar">@roman_hash</span> = {
+                <span class="ruby-value">1</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;I&quot;</span>,
+                <span class="ruby-value">4</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;IV&quot;</span>,
+                <span class="ruby-value">5</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;V&quot;</span>,
+                <span class="ruby-value">9</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;IX&quot;</span>,
+                <span class="ruby-value">10</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;X&quot;</span>,
+                <span class="ruby-value">40</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;XL&quot;</span>, 
+                <span class="ruby-value">50</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;L&quot;</span>, 
+                <span class="ruby-value">90</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;XC&quot;</span>,
+                <span class="ruby-value">100</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;C&quot;</span>, 
+                <span class="ruby-value">400</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;CD&quot;</span>, 
+                <span class="ruby-value">500</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;D&quot;</span>, 
+                <span class="ruby-value">900</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;CM&quot;</span>,
+                <span class="ruby-value">1000</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;M&quot;</span>
+        }
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@roman_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-update_symbols" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update_symbols</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The <a href="Roman.html#method-i-update_symbols">#update_symbols</a> method
+is the method used to define any new symbols to  be used for conversion. 
+This method accepts a hash with new definitions with the key the integer
+value and the value the corresponding symbol.  This method will  not ignore
+floating point number definitions and any attempt to redefine the symbols
+for 1 or 5. For example, to update the symbol for 40 from “XL” to “T”: <a
+href="Roman.html#method-i-update_symbols">#update_symbols</a>({40 =&gt;
+“T”})</p>
+
+<p><strong>Args</strong>          :</p>
+<ul><li>
+<p><code>options</code> -&gt; hash accepting new <a
+href="Roman.html">Roman</a> Numeral defintions, for example, to replace XL
+for 40: {40 =&gt; “T”}</p>
+</li></ul>
+
+<p><strong>Returns</strong> :</p>
+<ul><li>
+<p><a href="Roman.html#attribute-i-roman_hash">#roman_hash</a> -&gt; instance
+hash containing all current symbol definitions</p>
+</li></ul>
+
+<p><strong>Raises</strong>  : This method contains no additional error checks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="update_symbols-source">
+            <pre><span class="ruby-comment"># File roman.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update_symbols</span>(<span class="ruby-identifier">options</span> = {})
+        <span class="ruby-comment"># Iterate on each key, value pair in the options </span>
+        <span class="ruby-comment"># 1. Check that new integer assignment does not overwrite 1 or 5 and is of type Fixnum or Bignum; if not, ignore</span>
+        <span class="ruby-comment"># 2. Assign integer key in instance hash containing all assignments with new letter symbol</span>
+        <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">integer</span>, <span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> (<span class="ruby-identifier">integer!</span>=<span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">integer!</span>=<span class="ruby-value">5</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">integer</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Fixnum</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">integer</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Bignum</span>)))
+                        <span class="ruby-ivar">@roman_hash</span>[<span class="ruby-identifier">integer</span>] = <span class="ruby-identifier">letter</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@roman_hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

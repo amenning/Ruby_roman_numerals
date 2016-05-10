@@ -1,64 +1,64 @@
-# The Roman class contains custom methods to convert an integer or floating number to Roman Numerals.
-# This version uses the original Roman Numerals for 1-4999, with the option to define new symbols for any integer
-# value other than 1 (I) and 5 (V).
+#The Roman class contains custom methods to convert an integer or floating number to Roman Numerals.
+#This version uses the original Roman Numerals for 1-4999, with the option to define new symbols for any integer
+#value other than 1 (I) and 5 (V).
 #
-# The default symbols are:
-# - I (1)
-# - IV (4)
-# - V (5)
-# - IX (9)
-# - X (10)
-# - XL (40)
-# - L (50)
-# - XC (90)
-# - C (100)
-# - CD (400)
-# - D (500)
-# - CM (900)
-# - M (1000)
+#The default symbols are:
+#- I (1)
+#- IV (4)
+#- V (5)
+#- IX (9)
+#- X (10)
+#- XL (40)
+#- L (50)
+#- XC (90)
+#- C (100)
+#- CD (400)
+#- D (500)
+#- CM (900)
+#- M (1000)
 #
-# The methods below are also implemenented with the following constraints:
+#The methods below are also implemenented with the following constraints:
 #
-# "Implement an integer-to-roman-numeral formatting function
-# - ...that permits assigning symbols for values other than 1 and 5, without changing the code
-# - ...that can represent floating-point numbers, using an encoding scheme of your choice (explain!)"
+#"Implement an integer-to-roman-numeral formatting function
+#- ...that permits assigning symbols for values other than 1 and 5, without changing the code
+#- ...that can represent floating-point numbers, using an encoding scheme of your choice (explain!)"
 #
-# New symbols defintions can be assigned using the update_symbols method using a hash of definitions, such as {40 => "T"}
-# This method also will convert floating-point numbers to 3 decimal places using the instance symbol definitions from 0.001 to 0.999, such that 0.001 = ".I" and 0.999 = ".CMXCIX"
+#New symbols defintions can be assigned using the update_symbols method using a hash of definitions, such as {40 => "T"}
+#This method also will convert floating-point numbers to 3 decimal places using the instance symbol definitions from 0.001 to 0.999, such that 0.001 = ".I" and 0.999 = ".CMXCIX"
 #
-# Author::		Carl Andrew Menning 
-# Version::		0.0.1
-# License::		Distributed under the same terms as Ruby
+#Author::		Carl Andrew Menning 
+#Version::		0.0.1
+#License::		Distributed under the same terms as Ruby
 class Roman
 		
 	attr_reader :roman_hash
 
-	# The initialize method creates an instance version of Roman Numerals contained within a hash
-	# such that the key is the integer value and the value is the corresponding Roman Numeral symbol
+	#The initialize method creates an instance version of Roman Numerals contained within a hash
+	#such that the key is the integer value and the value is the corresponding Roman Numeral symbol
 	#
-	# * *Args*	  :
-	#	- +options+ -> hash accepting new Roman Numeral defintions, for example, to replace XL for 40: {40 => "T"}
-	# * *Returns* :
-	# 	- roman_hash -> instance hash containing all current symbol definitions
-	# * *Raises*  :
-	#	This method contains no additional error checks
+	#*Args*	  :
+	#- +options+ -> hash accepting new Roman Numeral defintions, for example, to replace XL for 40: {40 => "T"}
+	#*Returns* :
+	#- roman_hash -> instance hash containing all current symbol definitions
+	#*Raises*  :
+	#This method contains no additional error checks
 	def initialize(options = {})
 		reset_symbols!
 		
 		update_symbols(options)
 	end
 
-	# The int_to_rom method is the main method used to convert an integer or floating number to Roman Numerals
-	# using the current symbol definition contained within the instance variable @roman_hash.
-	# This method will convert floating point numbers to 3 decimals such that 0.001 = ".I" and 0.999 = ".CMXCIX"
-	# and will use any updated integer symbols as appropriate 
+	#The int_to_rom method is the main method used to convert an integer or floating number to Roman Numerals
+	#using the current symbol definition contained within the instance variable @roman_hash.
+	#This method will convert floating point numbers to 3 decimals such that 0.001 = ".I" and 0.999 = ".CMXCIX"
+	#and will use any updated integer symbols as appropriate 
 	#
-	# * *Args*	  :
-	#	- +number+ -> Fixnum, Bignum, or Float to be converted to Roman Numerals
-	# * *Returns* :
-	# 	- String containing converted number into defined Roman Numerals
-	# * *Raises*  :
-	#	This method contains no additional error checks	
+	#*Args*	  :
+	#- +number+ -> Fixnum, Bignum, or Float to be converted to Roman Numerals
+	#*Returns* :
+	#- String containing converted number into defined Roman Numerals
+	#*Raises*  :
+	#This method contains no additional error checks	
 	def int_to_rom(number)
 		# 1. Separate input number to be converted into integer and fractional portions
 		# 1a. Integer portion can be separated by using Ruby's to_i method 
@@ -81,15 +81,15 @@ class Roman
 		return total_roman_num
 	end
 
-	# The convert_int method is the method used to convert subset integers to Roman Numerals
-	# using the instance defined symbols contained within @roman_hash
+	#The convert_int method is the method used to convert subset integers to Roman Numerals
+	#using the instance defined symbols contained within @roman_hash
 	#
-	# * *Args*	  :
-	#	- +number+ -> Fixnum or Bignum to be converted to Roman Numerals
-	# * *Returns* :
-	# 	- String containing converted number into defined Roman Numerals
-	# * *Raises*  :
-	#	This method contains no additional error checks		
+	#*Args*	  :
+	#- +number+ -> Fixnum or Bignum to be converted to Roman Numerals
+	#*Returns* :
+	#- String containing converted number into defined Roman Numerals
+	#*Raises*  :
+	#This method contains no additional error checks		
 	def convert_int(number)
 		roman_num = ""
 		#The following chain of commands takes the hash containing symbol definitions and does:
@@ -106,18 +106,18 @@ class Roman
 		return roman_num
 	end
 
-	# The update_symbols method is the method used to define any new symbols to 
-	# be used for conversion.  This method accepts a hash with new definitions with
-	# the key the integer value and the value the corresponding symbol.  This method will 
-	# not ignore floating point number definitions and any attempt to redefine the symbols for 1 or 5.
-	# For example, to update the symbol for 40 from "XL" to "T": update_symbols({40 => "T"})
+	#The update_symbols method is the method used to define any new symbols to 
+	#be used for conversion.  This method accepts a hash with new definitions with
+	#the key the integer value and the value the corresponding symbol.  This method will 
+	#not ignore floating point number definitions and any attempt to redefine the symbols for 1 or 5.
+	#For example, to update the symbol for 40 from "XL" to "T": update_symbols({40 => "T"})
 	#
-	# * *Args*	  :
-	#	- +options+ -> hash accepting new Roman Numeral defintions, for example, to replace XL for 40: {40 => "T"}
-	# * *Returns* :
-	# 	- roman_hash -> instance hash containing all current symbol definitions
-	# * *Raises*  :
-	#	This method contains no additional error checks	
+	#*Args*	  :
+	#- +options+ -> hash accepting new Roman Numeral defintions, for example, to replace XL for 40: {40 => "T"}
+	#*Returns* :
+	#- roman_hash -> instance hash containing all current symbol definitions
+	#*Raises*  :
+	#This method contains no additional error checks	
 	def update_symbols(options = {})
 		# Iterate on each key, value pair in the options 
 		# 1. Check that new integer assignment does not overwrite 1 or 5 and is of type Fixnum or Bignum; if not, ignore
@@ -130,15 +130,15 @@ class Roman
 		return @roman_hash
 	end
 
-	# The reset_symbols method used to redefine the instance hash containing Roman Numeral definitions
-	# to the original set of definitions and clear any changes that have been made.
+	#The reset_symbols method used to redefine the instance hash containing Roman Numeral definitions
+	#to the original set of definitions and clear any changes that have been made.
 	#
-	# * *Args*	  :
-	#	- This method has no arguments
-	# * *Returns* :
-	# 	- roman_hash -> instance hash containing all original symbol definitions
-	# * *Raises*  :
-	#	This method contains no additional error checks		
+	#*Args*	  :
+	#- This method has no arguments
+	#*Returns* :
+	#- roman_hash -> instance hash containing all original symbol definitions
+	#*Raises*  :
+	#This method contains no additional error checks		
 	def reset_symbols!
 		@roman_hash = {
 			1 => "I",
