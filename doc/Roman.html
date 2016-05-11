@@ -219,7 +219,7 @@ href="Roman.html">Roman</a> Numeral symbol</p>
 <p><strong>Args</strong>          :</p>
 <ul><li>
 <p><code>options</code> -&gt; hash accepting new <a
-href="Roman.html">Roman</a> Numeral defintions, for example, to replace XL
+href="Roman.html">Roman</a> Numeral defintions; for example, to replace XL
 for 40: {40 =&gt; “T”}</p>
 </li></ul>
 
@@ -372,7 +372,7 @@ href="Roman.html">Roman</a> Numerals</p>
         <span class="ruby-identifier">number</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">integer_portion</span><span class="ruby-operator">*</span><span class="ruby-value">1000</span>
         <span class="ruby-identifier">fractional_portion</span> = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_i</span>
         
-        <span class="ruby-comment"># 3. Initialize final Roman Numeral sring to return &quot;&quot; if inputed number is 0</span>
+        <span class="ruby-comment"># 3. Initialize final Roman Numeral string to return adn will remain &quot;&quot; if inputed number is 0</span>
         <span class="ruby-identifier">total_roman_num</span> = <span class="ruby-string">&quot;&quot;</span>
         <span class="ruby-comment"># 4. Convert integer portion unless this is equal to 0</span>
         <span class="ruby-identifier">total_roman_num</span> = <span class="ruby-identifier">convert_int</span>(<span class="ruby-identifier">integer_portion</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">integer_portion</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
@@ -470,7 +470,7 @@ hash containing all original symbol definitions</p>
           <p>The <a href="Roman.html#method-i-update_symbols">#update_symbols</a> method
 is the method used to define any new symbols to  be used for conversion. 
 This method accepts a hash with new definitions with the key the integer
-value and the value the corresponding symbol.  This method will  not ignore
+value and the value the corresponding symbol.  This method will  ignore
 floating point number definitions and any attempt to redefine the symbols
 for 1 or 5. For example, to update the symbol for 40 from “XL” to “T”: <a
 href="Roman.html#method-i-update_symbols">#update_symbols</a>({40 =&gt;

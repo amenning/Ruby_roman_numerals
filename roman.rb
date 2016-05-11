@@ -37,7 +37,7 @@ class Roman
 	#such that the key is the integer value and the value is the corresponding Roman Numeral symbol
 	#
 	#*Args*	  :
-	#- +options+ -> hash accepting new Roman Numeral defintions, for example, to replace XL for 40: {40 => "T"}
+	#- +options+ -> hash accepting new Roman Numeral defintions; for example, to replace XL for 40: {40 => "T"}
 	#*Returns* :
 	#- roman_hash -> instance hash containing all current symbol definitions
 	#*Raises*  :
@@ -71,7 +71,7 @@ class Roman
 		number -= integer_portion*1000
 		fractional_portion = number.to_i
 		
-		# 3. Initialize final Roman Numeral sring to return "" if inputed number is 0
+		# 3. Initialize final Roman Numeral string to return adn will remain "" if inputed number is 0
 		total_roman_num = ""
 		# 4. Convert integer portion unless this is equal to 0
 		total_roman_num = convert_int(integer_portion) unless integer_portion == 0
@@ -109,7 +109,7 @@ class Roman
 	#The update_symbols method is the method used to define any new symbols to 
 	#be used for conversion.  This method accepts a hash with new definitions with
 	#the key the integer value and the value the corresponding symbol.  This method will 
-	#not ignore floating point number definitions and any attempt to redefine the symbols for 1 or 5.
+	#ignore floating point number definitions and any attempt to redefine the symbols for 1 or 5.
 	#For example, to update the symbol for 40 from "XL" to "T": update_symbols({40 => "T"})
 	#
 	#*Args*	  :
