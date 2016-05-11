@@ -29,7 +29,7 @@ This method also will convert floating-point numbers to 3 decimal places using t
 
 ## How to use
 
-This is what you need to do to use this custom Atoi class:
+This is what you need to do to use this custom Roman class:
 
 1.  Ensure you have ruby installed on your machine
 
