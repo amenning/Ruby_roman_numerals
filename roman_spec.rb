@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require './roman'
 
 describe Roman do
